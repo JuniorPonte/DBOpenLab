@@ -927,15 +927,15 @@
     .challenge-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 20px;
+      gap: 26px;
+      margin-top: 18px;
     }
 
     .challenge {
       display: grid;
-      align-content: space-between;
-      min-height: 500px;
-      padding: 34px;
+      grid-template-rows: auto 1fr auto;
+      min-height: 420px;
+      padding: 30px 34px 32px;
       color: var(--white);
       border-radius: 8px;
       background:
@@ -968,14 +968,22 @@
       text-transform: uppercase;
     }
 
+    .challenge-body {
+      display: grid;
+      align-content: center;
+      padding: 26px 0 18px;
+    }
+
     .challenge h3 {
-      margin-top: 96px;
-      font-size: 40px;
+      margin: 0 0 16px;
+      font-size: 38px;
+      line-height: 1.04;
     }
 
     .challenge p {
+      margin: 0;
       color: rgba(255, 255, 255, 0.74);
-      font-size: 24px;
+      font-size: 22px;
       line-height: 1.2;
       font-family: var(--font-regular);
       font-weight: 400;
@@ -983,9 +991,30 @@
 
     .challenge strong {
       color: var(--white);
-      font-size: 28px;
+      font-size: 25px;
+      line-height: 1.1;
       font-family: var(--font-strong);
       font-weight: 650;
+    }
+
+    .cohort-slide {
+      grid-template-rows: 82px 1fr 58px;
+    }
+
+    .cohort-slide .content {
+      align-content: start;
+    }
+
+    .cohort-slide h2 {
+      max-width: 1240px;
+      margin-bottom: 18px;
+      font-size: 58px;
+      line-height: 1.02;
+    }
+
+    .cohort-slide .footer {
+      align-items: end;
+      padding-bottom: 2px;
     }
 
     .detail-layout {
@@ -1707,7 +1736,7 @@
         </footer>
       </section>
 
-      <section class="slide theme-dark" data-title="Cohorte 1">
+      <section class="slide theme-dark cohort-slide" data-title="Cohorte 1">
         <header class="topbar">
           <div class="brand">
             <div class="brand-mark">B</div>
@@ -1717,27 +1746,27 @@
         </header>
         <div class="content">
           <p class="eyebrow">Cohorte 1</p>
-          <h2>Desafíos oficiales del primer programa</h2>
+          <h2>Desafíos oficiales de la cohorte</h2>
           <div class="challenge-grid">
             <article class="challenge">
-              <div>
-                <span class="tag">Challenge 01</span>
+              <span class="tag">Challenge 01</span>
+              <div class="challenge-body">
                 <h3>Smart Site Operations&trade;</h3>
                 <p>Visibilidad en tiempo real de personas, equipos y avance.</p>
               </div>
               <strong>+10-20% productividad</strong>
             </article>
             <article class="challenge">
-              <div>
-                <span class="tag">Challenge 02</span>
+              <span class="tag">Challenge 02</span>
+              <div class="challenge-body">
                 <h3>Digital Material Flow&trade;</h3>
                 <p>Trazabilidad de materiales y herramientas desde ingreso hasta instalación.</p>
               </div>
               <strong>-10-20% pérdidas</strong>
             </article>
             <article class="challenge">
-              <div>
-                <span class="tag">Challenge 03</span>
+              <span class="tag">Challenge 03</span>
+              <div class="challenge-body">
                 <h3>Predictive Project Control&trade;</h3>
                 <p>Control predictivo de plazo, costo y avance con data.</p>
               </div>
