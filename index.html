@@ -1414,10 +1414,19 @@
     }
 
     @media print {
+      @page {
+        size: 16in 9in;
+        margin: 0;
+      }
+
       html,
       body {
         background: #fff;
         overflow: visible;
+        width: 100%;
+        height: auto;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
       }
 
       .app {
@@ -1440,13 +1449,18 @@
       .slide {
         position: relative;
         display: grid;
-        width: 100vw;
-        height: 56.25vw;
-        max-height: 100vh;
+        width: 100%;
+        height: 100vh;
         page-break-after: always;
+        break-after: page;
         opacity: 1;
         visibility: visible;
         transform: none;
+      }
+
+      .slide:last-child {
+        page-break-after: auto;
+        break-after: auto;
       }
 
       .nav,
@@ -2013,6 +2027,9 @@
     <button class="nav-button" type="button" id="next" aria-label="Siguiente diapositiva">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
     </button>
+    <button class="nav-button" type="button" id="exportPdf" aria-label="Exportar a PDF" title="Exportar a PDF">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M12 18v-6" /><path d="M9 15l3 3 3-3" /></svg>
+    </button>
     <button class="nav-button" type="button" id="hideControls" aria-label="Ocultar controles" title="Ocultar controles">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
     </button>
@@ -2030,6 +2047,7 @@
     const prevButton = document.querySelector("#prev");
     const nextButton = document.querySelector("#next");
     const fullButton = document.querySelector("#fullscreen");
+    const exportPdfButton = document.querySelector("#exportPdf");
     const hideControlsButton = document.querySelector("#hideControls");
     const showControlsButton = document.querySelector("#showControls");
     const counter = document.querySelector("#counter");
@@ -2134,6 +2152,7 @@
 
     prevButton.addEventListener("click", prevSlide);
     nextButton.addEventListener("click", nextSlide);
+    exportPdfButton.addEventListener("click", () => window.print());
     hideControlsButton.addEventListener("click", () => setControlsVisible(false, false, true));
     showControlsButton.addEventListener("click", () => setControlsVisible(true, true, true));
 
